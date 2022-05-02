@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../assets/css/style.css"/>
+</head>
+<body>
+    <h1>student form</h1>
+    <form action="insert.php" method="post" id="form">
+        <table cellspacing="5">
+            <tr valign="top">
+                <td>
+                    <label>Name</label>
+                </td>
+                 <td>
+                     <input type="text" name="name" id="nameFild"></br>
+                     <span class="error-msg" id="nameFildMsg"></span>
+                </td>
+            </tr>
+        
+             <tr valign="top">
+                <td>
+                    <label>City</label>
+                </td>
+                <td>
+                    <input type="text" name="city" id="cityFild"></br>
+                    <span class="error-msg" id="cityFildMsg"></span>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td>
+                    <label>NIC</label>
+                </td>
+                <td>
+                    <input type="text" name="nic" id="nicFild"></br>
+                    <span class="error-msg" id="nicFildMsg"></span>
+                </td>
+            </tr>
+            <tr><td colspan="2" align="right"><button type="submit">Add</button></td></tr>
+        </table>
+    </form>
+    <br>
+    <br>
+    <a class="my-btn" href="table.php">Show all Students</a>
+</body>
+
+<script>
+
+    const form = document.getElementById('form');
+    const nameFild = document.getElementById('nameFild');
+    const cityFild = document.getElementById('cityFild');
+    const nicFild = document.getElementById('nicFild');
+    const nameFildMsg = document.getElementById('nameFildMsg');
+    const cityFildMsg = document.getElementById('cityFildMsg');
+    const nicFildMsg = document.getElementById('nicFildMsg');
+
+    function validateName(){
+        const name = nameFild.value.trim();
+        const crit1 = name != "";
+        const crit2 = name.length >= 3;
+        if(!crit1){
+        nameFildMsg.innerHTML='Name is requrid';
+        return false;}
+
+        if(!crit2){
+            nameFildMsg.innerHTML='Name sould have at last 3 texts';
+            return false;
+        }
+        nameFildMsg.innerHTML="";
+        return true;
+        
+    }
+
+    function validateCity(){
+        const city = cityFild.value.trim();
+        const crit1 = city != "";
+        const crit2 = city.length >= 2;
+        if(!crit1){
+
+        cityFildMsg.innerHTML='City is requrid';
+        return false;}
+
+        if(!crit2){
+            cityFildMsg.innerHTML='City sould have at last 2 texts';
+            return false;
+        }
+        cityFildMsg.innerHTML="";
+        return true;
+        
+    }
+
+    function validatenic(){
+        const nic = nicFild.value.trim();
+        const crit1 = nic != "";
+        const crit2 = nic.length ==10 || nic.length == 12;
+        if(!crit1){
+
+        nicFildMsg.innerHTML='NIC is requrid';
+        return false;}
+
+        if(!crit2){
+            nicFildMsg.innerHTML='NIC sould have 10 OR 12 texts';
+            return false;
+        }
+        nicFildMsg.innerHTML="";
+        return true;
+        
+    }
+    
+    form.addEventListener('submit', function(e){
+    const nameValidity = validateName();
+    const cityValidity = validateCity();
+    const nicValidity = validatenic();
+
+    if(!nameValidity || !cityValidity || !nameValidity)e.preventDefault();
+
+    });
+    
+        
+        </script>
+        <style>
+            .error-msg{
+                color:#b90303;
+                font-size: small;
+            }
+    
+        </style>
+
+
+</html>

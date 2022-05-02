@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../assets/css/style.css"/>
+</head>
+<body>
+    <h1>Batch form</h1>
+    <form action="insert.php" method="post" id="form">
+        <table cellspacing="5">
+            <tr valign="top">
+                <td>
+                    <label>Name</label>
+                </td>
+                 <td>
+                     <input type="text" name="name" id="nameFild"></br>
+                     <span class="error-msg" id="nameFildMsg"></span>
+                </td>
+            </tr>
+        
+             <tr valign="top">
+                <td>
+                    <label>Fee</label>
+                </td>
+                <td>
+                    <input type="number" name="fee" id="feeFild"></br>
+                    <span class="error-msg" id="feeFildMsg"></span>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td>
+                    <label>Starting date</label>
+                </td>
+                <td>
+                    <input type="date" name="Sdate" id="SdateFild"></br>
+                    <span class="error-msg" id="sdateFildMsg"></span>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td>
+                    <label>Ending date</label>
+                </td>
+                <td>
+                    <input type="date" name="Edate" id="EdateFild"></br>
+                    <span class="error-msg" id="edateFildMsg"></span>
+                </td>
+            </tr>
+
+            <tr valign="top">
+                <td>
+                    <label>Cordinatior</label>
+                </td>
+                <td>
+                    <input type="text" name="Cordinatior" id="CordinatiorFild"></br>
+                    <span class="error-msg" id="cordinatiorFildMsg"></span>
+                </td>
+            </tr>
+
+            <tr><td colspan="2" align="right"><button type="submit">Add</button></td></tr>
+        </table>
+    </form>
+    <br>
+    <br>
+    <a class="my-btn" href="table.php">Show all Students</a>
+</body>
+
+<script>
+
+    const form = document.getElementById('form');
+    const nameFild = document.getElementById('nameFild');
+    const cityFild = document.getElementById('feeFild');
+    const nicFild = document.getElementById('sdateFild');
+    const cityFild = document.getElementById('edateFild');
+    const nicFild = document.getElementById('cordinatiorFild');
+    const nameFildMsg = document.getElementById('nameFildMsg');
+    const cityFildMsg = document.getElementById('feeFildMsg');
+    const nicFildMsg = document.getElementById('sdateFildMsg');
+    const nameFildMsg = document.getElementById('edateFildMsg');
+    const cityFildMsg = document.getElementById('cordinatiorFildMsg');
+
+    function validateName(){
+        const name = nameFild.value.trim();
+        const crit1 = name != "";
+        const crit2 = name.length >= 3;
+        if(!crit1){
+        nameFildMsg.innerHTML='Name is requrid';
+        return false;}
+
+        if(!crit2){
+            nameFildMsg.innerHTML='Name sould have at last 3 texts';
+            return false;
+        }
+        nameFildMsg.innerHTML="";
+        return true;
+        
+    }
+
+    function validateFee(){
+        const fee = feeFild.value.trim();
+        const crit1 = fee != "";
+        const crit2 = fee.length >= 2;
+        if(!crit1){
+
+        cityFildMsg.innerHTML='Fee is requrid';
+        return false;}
+
+        if(!crit2){
+            cityFildMsg.innerHTML='fee sould have at last 2 numbers';
+            return false;
+        }
+        cityFildMsg.innerHTML="";
+        return true;
+        
+    }
+
+    function validateCordinator(){
+        const cordinator = cordinatiorFild.value.trim();
+        const crit1 = coordinatior != "";
+        if(!crit1){
+
+        nicFildMsg.innerHTML='Coordinatior is requrid';
+        return false;}
+
+        }
+
+        
+    function validateSdate(){
+        const sdate = sdateFild.value.trim();
+        const crit1 = sdate != "";
+        if(!crit1){
+
+        sdateFildMsg.innerHTML='Staring date is requrid';
+        return false;}
+
+        }
+
+
+
+    function validateEdate(){
+        const edate = edateFild.value.trim();
+        const crit1 = edate != "";
+        if(!crit1){
+
+        edateFildMsg.innerHTML='End date is requrid';
+        return false;}
+
+        }
+
+
+
+    form.addEventListener('submit', function(e){
+    const nameValidity = validateName();
+    const feeValidity = validateFee();
+    const cordinatiorValidity = validateCordinator();
+    const sdateValidity = validateSdate();
+    const edateValidity = validateEdate();
+
+    if(!cordinatiorValidity || !feeValidity || !nameValidity || !sdateValidity || !edateValidity)e.preventDefault();
+
+    });
+    
+        
+        </script>
+        <style>
+            .error-msg{
+                color:#b90303;
+                font-size: small;
+            }
+    
+        </style>
+
+
+</html>

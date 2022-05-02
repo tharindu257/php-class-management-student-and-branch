@@ -1,0 +1,52 @@
+.my-btn{
+    background-color: #008;
+    color:white;
+    padding:4px 8px;
+    text-decoration:none;
+    font-family:calibri,sans-serif;
+    border-radius:5px;
+}
+
+.my-btn:hover{
+    background-color:#00f;
+}
+
+.my-delete-btn{
+    background-color: #800;
+    color:white;
+    padding:4px 8px;
+    text-decoration:none;
+    font-family:calibri,sans-serif;
+    border-radius:5px;
+}
+
+.my-delete-btn:hover{
+    background-color:#a00;
+}
+
+
+.my-detail-btn{
+    background-color: #008;
+    color:white;
+    padding:4px 8px;
+    text-decoration:none;
+    font-family:calibri,sans-serif;
+    border-radius:5px;
+}
+
+.my-detail-btn:hover{
+    background-color:#00f;
+}
+
+.my-update-btn{
+    background-color: yellowgreen;
+    color:white;
+    padding:4px 8px;
+    text-decoration:none;
+    font-family:calibri,sans-serif;
+    border-radius:5px;
+}
+
+.my-update-btn:hover{
+    background-color:yellow;
+}
